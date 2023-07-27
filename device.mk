@@ -31,6 +31,9 @@ PRODUCT_PACKAGES += \
     libnqnfc_nci_jni \
     nfc_nci.nqx.default
 
+# Force remove unwanted NfcNci
+PRODUCT_PACKAGES += RemovePackagesNfcNci
+
 # FeliCa configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/blobs/system_ext/etc/sysconfig/com.felicanetworks.powersave.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/com.felicanetworks.powersave.xml \
