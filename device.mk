@@ -4,12 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    vendor/nxp/opensource/sn100x \
-    vendor/nxp/opensource/packages/apps/Nfc
-
 # Avoid compile errors
 RELAX_USES_LIBRARY_CHECK := true
 
@@ -23,13 +17,17 @@ PRODUCT_PACKAGES += \
 # NFC
 TARGET_USES_NQ_NFC := true
 
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/nxp/opensource/sn100x \
+    vendor/nxp/opensource/commonsys/packages/apps/Nfc \
+    vendor/nxp/opensource/commonsys/external/libnfc-nci
+
 PRODUCT_PACKAGES += \
-    Nfc \
     Tag \
     NQNfcNci \
-    libnqnfc-nci \
-    libnqnfc_nci_jni \
-    nfc_nci.nqx.default
+    libsn100nfc-nci \
+    libsn100nfc_nci_jni \
+    nfc_nci.nqx.default.hw
 
 # Force remove unwanted NfcNci
 PRODUCT_PACKAGES += RemovePackagesNfcNci
